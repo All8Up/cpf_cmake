@@ -23,6 +23,8 @@ set (HUNTER_CACHE_SERVERS
     STRING
     "Default cache server"
 )
+set (CMAKE_CONFIGURATION_TYPES Debug Release CACHE STRING "" FORCE)
+set (HUNTER_CONFIGURATION_TYPES Debug Release CACHE STRING "" FORCE)
 
 # ###############################################
 # Dump details to console for debugging purposes.

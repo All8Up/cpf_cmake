@@ -10,8 +10,6 @@ file (DOWNLOAD
 
 # ###############################################
 set_property (GLOBAL PROPERTY USE_FOLDERS ON)
-set (CMAKE_CONFIGURATION_TYPES Debug Release RelWithDebInfo CACHE STRING "" FORCE)
-set (HUNTER_CONFIGURATION_TYPES Debug Release RelWithDebInfo CACHE STRING "" FORCE)
 
 # ###############################################
 if (NOT CPF_CONFIG)
