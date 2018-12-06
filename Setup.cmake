@@ -9,19 +9,9 @@ file (DOWNLOAD
 )
 
 # ###############################################
-# Setup the cache server to download prebuilt binaries.
-set(HUNTER_CACHE_SERVERS
-    "http://all8up.selfip.com:32771/artifactory/hunter"
-    CACHE
-    STRING
-    "Default cache server"
-)
-
-# ###############################################
 set_property (GLOBAL PROPERTY USE_FOLDERS ON)
-set (CMAKE_CONFIGURATION_TYPES Debug Release RelWithDebInfo CACHE STRING "")
+set (CMAKE_CONFIGURATION_TYPES Debug Release RelWithDebInfo CACHE STRING "" FORCE)
 set (HUNTER_CONFIGURATION_TYPES Debug Release RelWithDebInfo CACHE STRING "" FORCE)
-include (hunter_protected_sources)
 
 # ###############################################
 if (NOT CPF_CONFIG)
@@ -31,23 +21,23 @@ endif ()
 # ###############################################
 # Helper to download a release zip and decompress it.
 macro (cpf_download_release project version)
-    if (EXISTS "${CMAKE_CURRENT_LIST_DIR}/_config/${project}-v${version}.zip")
+    if (EXISTS "${CMAKE_CURRENT_LIST_DIR}/${project}-v${version}.zip")
         message ("${project} already downloaded.")
     else ()
         message ("Downloading ${project}.")
         file (DOWNLOAD
             "https://github.com/All8Up/${project}/archive/v${version}.zip"
-            "${CMAKE_CURRENT_LIST_DIR}/_config/${project}-v${version}.zip"
+            "${CMAKE_CURRENT_LIST_DIR}/${project}-v${version}.zip"
         )
         message ("Unzipping ${project}.")
         execute_process (
-            COMMAND ${CMAKE_COMMAND} -E tar "x" "${CMAKE_CURRENT_LIST_DIR}/_config/${project}-v${version}.zip" --format=zip
+            COMMAND ${CMAKE_COMMAND} -E tar "x" "${CMAKE_CURRENT_LIST_DIR}/${project}-v${version}.zip" --format=zip
             WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/_config"
         )
-        file (REMOVE_RECURSE "${CMAKE_CURRENT_LIST_DIR}/_config/${project}")
+        file (REMOVE_RECURSE "${CMAKE_CURRENT_LIST_DIR}/${project}")
         file (RENAME
-            "${CMAKE_CURRENT_LIST_DIR}/_config/${project}-${version}"
-            "${CMAKE_CURRENT_LIST_DIR}/_config/${project}"
+            "${CMAKE_CURRENT_LIST_DIR}/${project}-${version}"
+            "${CMAKE_CURRENT_LIST_DIR}/${project}"
         )
     endif ()
 endmacro ()
@@ -74,7 +64,8 @@ define_property (TARGET
 set (HUNTER_KEEP_PACKAGE_SOURCES ON)
 include ("${CMAKE_CURRENT_LIST_DIR}/HunterGate.cmake")
 HunterGate(
-    URL "https://github.com/ruslo/hunter/archive/v0.23.53.tar.gz"
-    SHA1 "5d9feddb1ebeca27e32634954fe4de37cf36f97d"
+    URL "https://github.com/ruslo/hunter/archive/v0.23.65.tar.gz"
+    SHA1 "00e252171605c290390a3cc90a372beeeb406d3c"
     FILEPATH "${CPF_CONFIG}"
 )
+include (hunter_protected_sources)

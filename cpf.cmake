@@ -17,6 +17,12 @@ set (CPF_CMAKE_SETUP_FILE
     "https://raw.githubusercontent.com/All8Up/cpf_cmake/master/Setup.cmake"
     CACHE STRING "CPF cmake setup and configuration file."
 )
+set (HUNTER_CACHE_SERVERS
+    "http://all8up.selfip.com:32771/artifactory/hunter"
+    CACHE
+    STRING
+    "Default cache server"
+)
 
 # ###############################################
 # Dump details to console for debugging purposes.
