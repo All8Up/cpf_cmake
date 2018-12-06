@@ -32,7 +32,7 @@ macro (cpf_download_release project version)
         message ("Unzipping ${project}.")
         execute_process (
             COMMAND ${CMAKE_COMMAND} -E tar "x" "${CMAKE_CURRENT_LIST_DIR}/${project}-v${version}.zip" --format=zip
-            WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/_config"
+            WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
         )
         file (REMOVE_RECURSE "${CMAKE_CURRENT_LIST_DIR}/${project}")
         file (RENAME
