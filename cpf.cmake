@@ -10,7 +10,7 @@ set (CPF_HUNTER_GATE_FILE
     CACHE STRING "The hunter gate file to use."
 )
 set (CPF_HUNTER_CONFIG_FILE
-    ""
+    "https://raw.githubusercontent.com/All8Up/cpf_cmake/master/Config.cmake"
     CACHE STRING "Configuration file with hunter package information."
 )
 set (CPF_CMAKE_SETUP_FILE
