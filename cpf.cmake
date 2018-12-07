@@ -23,8 +23,9 @@ set (HUNTER_CACHE_SERVERS
     STRING
     "Default cache server"
 )
-set (CMAKE_CONFIGURATION_TYPES Debug Release CACHE STRING "" FORCE)
-set (HUNTER_CONFIGURATION_TYPES Debug Release CACHE STRING "" FORCE)
+if (NOT CPF_CONFIGURATION_TYPES)
+    set (CPF_CONFIGURATION_TYPES Debug Release RelWithDebInfo CACHE STRING "")
+endif ()
 
 # ###############################################
 # Dump details to console for debugging purposes.
@@ -35,9 +36,11 @@ message ("CPF_CMAKE_SETUP_FILE  : ${CPF_CMAKE_SETUP_FILE}")
 
 # ###############################################
 # Download the setup file and include it for further setup.
-file (DOWNLOAD
-    "${CPF_CMAKE_SETUP_FILE}"
-    "${CMAKE_CURRENT_LIST_DIR}/_config/Setup.cmake"
-)
+if (NOT EXISTS "${CMAKE_CURRENT_LIST_DIR}/_config/Setup.cmake")
+    file (DOWNLOAD
+        "${CPF_CMAKE_SETUP_FILE}"
+        "${CMAKE_CURRENT_LIST_DIR}/_config/Setup.cmake"
+    )
+endif ()
 
 include ("${CMAKE_CURRENT_LIST_DIR}/_config/Setup.cmake")

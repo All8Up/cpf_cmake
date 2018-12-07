@@ -1,12 +1,20 @@
 # ###############################################
-file (DOWNLOAD
-    "${CPF_HUNTER_GATE_FILE}"
-    "${CMAKE_CURRENT_LIST_DIR}/HunterGate.cmake"
-)
-file (DOWNLOAD
-    "${CPF_HUNTER_CONFIG_FILE}"
-    "${CMAKE_CURRENT_LIST_DIR}/Config.cmake"
-)
+set (CMAKE_CONFIGURATION_TYPES ${CPF_CONFIGURATION_TYPES} CACHE STRING "" FORCE)
+set (HUNTER_CONFIGURATION_TYPES ${CPF_CONFIGURATION_TYPES} CACHE STRING "" FORCE)
+
+# ###############################################
+if (NOT EXISTS "${CMAKE_CURRENT_LIST_DIR}/HunterGate.cmake")
+    file (DOWNLOAD
+        "${CPF_HUNTER_GATE_FILE}"
+        "${CMAKE_CURRENT_LIST_DIR}/HunterGate.cmake"
+    )
+endif ()
+if (NOT EXISTS "${CMAKE_CURRENT_LIST_DIR}/Config.cmake")
+    file (DOWNLOAD
+        "${CPF_HUNTER_CONFIG_FILE}"
+        "${CMAKE_CURRENT_LIST_DIR}/Config.cmake"
+    )
+endif ()
 
 # ###############################################
 set_property (GLOBAL PROPERTY USE_FOLDERS ON)
