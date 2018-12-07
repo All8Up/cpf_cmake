@@ -59,11 +59,21 @@ if (CPF_BUILD_SHARED)
 endif ()
 
 # ###############################################
-# Add a custom property to associate IDL files with targets.
+# Add a custom properties for plugins.
 define_property (TARGET
-    PROPERTY CPF_IDL_DIR
+    PROPERTY PLUGIN_IDL_LOCATION
     BRIEF_DOCS "The directory containing IDL files for the target."
     FULL_DOCS "The directory containing IDL files for the target."
+)
+define_property (TARGET
+    PROPERTY PLUGIN_CONFIGURATION_TYPES
+    BRIEF_DOCS "The build configurations supported by the plugin."
+    FULL_DOCS "The build configurations supported by the plugin."
+)
+define_property (TARGET
+    PROPERTY PLUGIN_DESC
+    BRIEF_DOCS "The json descriptor for this plugin."
+    FULL_DOCS "The json descriptor for this plugin."
 )
 
 # ###############################################
