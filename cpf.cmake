@@ -36,7 +36,8 @@ message ("CPF_CMAKE_SETUP_FILE  : ${CPF_CMAKE_SETUP_FILE}")
 
 # ###############################################
 # Download the setup file and include it for further setup.
-if (NOT EXISTS "${CMAKE_CURRENT_LIST_DIR}/_config/Setup.cmake")
+if (NOT EXISTS "${CMAKE_CURRENT_LIST_DIR}/_config/Setup.cmake"
+    OR NOT CPF_CONFIGURATION_COMPLETE)
     file (DOWNLOAD
         "${CPF_CMAKE_SETUP_FILE}"
         "${CMAKE_CURRENT_LIST_DIR}/_config/Setup.cmake"
