@@ -31,8 +31,8 @@ hunter_config (cpf_data_sqlite3
         BUILD_SHARED_LIBS=${CPF_BUILD_SHARED}
 )
 hunter_config (cpf_scripting_python
-    URL "https://github.com/All8Up/cpf_scripting_python/archive/v0.0.15.tar.gz"
-    SHA1 134144a8d11a270e69652f7bc7c1776db034349b
+    URL "https://github.com/All8Up/cpf_scripting_python/archive/v0.0.16.tar.gz"
+    SHA1 4eea56c9fae0a08ad84e09f74fb53fc778b1aebe
     CMAKE_ARGS
         CPF_CONFIGURATION_TYPES=${CPF_CONFIGURATION_TYPES}
         CPF_TOOLCHAINS_VERSION=${CPF_TOOLCHAINS_VERSION}
