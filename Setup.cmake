@@ -58,6 +58,9 @@ cpf_download_release (cpf_toolchains ${CPF_TOOLCHAINS_VERSION})
 
 # ###############################################
 option (CPF_BUILD_SHARED "Build libraries as shared." OFF)
+if (CPF_BUILD_SHARED)
+    set (BUILD_SHARED_LIBS ON CACHE STRING "Build shared libraries." FORCE)
+endif ()
 
 # ###############################################
 set (CPF_CONFIGURATION_COMPLETE ON CACHE STRING "CPF Configured." FORCE)
