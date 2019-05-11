@@ -69,8 +69,8 @@ set (CPF_CONFIGURATION_COMPLETE ON CACHE STRING "CPF Configured." FORCE)
 set (HUNTER_KEEP_PACKAGE_SOURCES ON)
 include ("${CMAKE_CURRENT_LIST_DIR}/HunterGate.cmake")
 HunterGate(
-    URL "https://github.com/ruslo/hunter/archive/v0.23.143.tar.gz"
-    SHA1 "4e14e5aae7fbdddd300b95dc7a65d148953f06de"
+    URL "https://github.com/ruslo/hunter/archive/v0.23.165.tar.gz"
+    SHA1 "5a73f91df5f6109c0bb1104d0c0ee423f7bece79"
     FILEPATH "${CPF_CONFIG}"
 )
 include (hunter_protected_sources)
